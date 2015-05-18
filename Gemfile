@@ -38,3 +38,10 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'activeadmin', '~> 1.0.0.pre1'
+
+# Plus integrations with:
+gem 'devise'
+gem 'cancan' # or cancancan
+gem 'draper'
+gem 'pundit'
