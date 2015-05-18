@@ -15,5 +15,14 @@ ActiveAdmin.register Video do
   # end
   permit_params :titulo, :link ## Add this line
 
+  index do
+    # download_links: false
+    # selectable_column
+    column "Link" do |video|
+      sortable: false
+      link_to video.titulo, video.link
+    end
+  end
+
 
 end
