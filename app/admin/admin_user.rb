@@ -1,5 +1,6 @@
 # encoding: utf-8
 ActiveAdmin.register AdminUser do
+  menu :if => proc { current_admin_user.user_type == AdminUser.types[:admin] } 
   permit_params :email, :password, :password_confirmation, :user_type
 
   index do
@@ -24,7 +25,7 @@ ActiveAdmin.register AdminUser do
       f.input :email
       f.input :password
       f.input :password_confirmation
-      f.input :user_type, as: :select, collection: AdminUser.types, :include_blank => false
+      f.input :user_type, as: :select, collection: AdminUser.types, :include_blank => false if authorized? :update_type, :admin_user
     end
     f.actions
   end
