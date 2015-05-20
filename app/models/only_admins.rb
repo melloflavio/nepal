@@ -1,7 +1,7 @@
 class OnlyAdmins < ActiveAdmin::AuthorizationAdapter
 
   def authorized?(action, subject = nil)
-    regular_user_views = ['Videos']
+    regular_user_views = ['Dashboard', 'Videos']
     if user.user_type == AdminUser.types[:admin] #admins have access to everything
       true
     elsif action == :update_type
